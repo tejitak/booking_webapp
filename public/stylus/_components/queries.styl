@@ -1,0 +1,76 @@
+.component__queries
+  .queries_form
+    padding-top 8px
+
+    input, select
+      border-color #d2d6de
+      border-radius 0
+      box-shadow none
+      background-color #fff
+      background-image none
+      border 1px solid #ccc
+      color #555
+      display block
+      font-size 14px
+      height 34px
+      line-height 1.42857
+      padding 6px 12px
+      width 100%
+
+    .queries_row
+      padding 8px 16px
+      .queries_row_label
+        margin-bottom 8px
+
+  .queries_budget_type_wrap
+    margin 12px 0
+    clearfix()
+
+    input
+      float left
+      width 50%
+      border 1px solid #F54242
+      color #f54242
+      height 24px
+      padding 0px 12px
+      -webkit-appearance none
+      &:first-child
+        border-radius 4px 0 0 4px
+        border-right none
+      &:last-child
+        border-radius 0 4px 4px 0
+
+      &.budget_type_selected
+        background-color #F54242
+        color #fff
+
+  .queries_budget_slider_wrap
+    height 40px
+    padding 20px
+
+    .noUi-horizontal
+      height 6px
+
+    .noUi-handle
+      width 28px
+      border-radius 100%
+      box-shadow inset 0 0 1px #FFF,inset 0 1px 2px #ebebeb,0 3px 6px -3px #000
+      top -12px
+      &:before, &:after
+        content none
+
+  .queries_footer
+    position absolute
+    bottom 0
+    left 0
+    width 100%
+
+  // override range slider
+  .noUi-tooltip
+    border none
+    left -20px
+    width 70px
+    font-size 12px
+
+  .noUi-handle-lower .noUi-tooltip
+    top 32px

@@ -1,0 +1,102 @@
+// PC specific styles
+
+@media only screen and (min-width 680px)
+
+  .page__top
+    .top_main
+      margin 20px auto
+
+      .top_card_wrap
+        width 33%
+
+      .card_info_section
+        left 12px
+        bottom 12px
+        font-size 14px
+    
+  .component__card
+    padding 15px
+
+    .card_user_wrap
+      top 8px
+      left 8px
+
+      img
+        width 64px
+        height 64px
+
+  .component__previewCard
+    .card_info_section
+      font-size 14px
+
+  header
+    height 64px
+    
+    .component__header
+      position absolute
+
+      .header_wrap
+        .header_logo, .header_menu
+          display block
+
+        .button_left, .button_right, .icon_queries
+          display none
+
+        &.header_page-search
+          .header_title
+            text-align center
+            margin-left auto
+
+        .header_title
+          height 60px
+          line-height 60px
+
+          input
+            height 38px
+            width 180px
+            margin-right 12px
+
+        &.header_page-top, &.header_page-map
+          .header_title
+            .icon_queries
+              display inline-block
+              position absolute
+              top 14px
+        &.header_page-search
+          .header_search_cancel
+            display inline-block
+
+  .page__detail
+    .detail_location
+      position relative
+
+    .map
+      height 280px
+
+    .detail_main
+      margin-top 24px
+
+    .detail_share
+      display block
+      .social_icon_wrap
+        padding-top 12px
+
+        li
+          margin 0 4px
+
+  .page__mypage
+    .mypage_list
+      background-color #fff
+      max-width 960px
+      margin 20px auto
+
+    .mypage_head
+      padding 40px
+
+    .mypage_photos .mypage_card_wrap
+      width 33%
+
+
+  .page__login
+    .login_body
+      top 80px

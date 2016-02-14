@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/header %>
+</head>
+<body id="app">
+
+  <!-- Slide Nav -->
+  <nav class="component__nav" id="menu">
+    <component-nav></component-nav>
+  </nav>
+
+  <!-- Main -->
+  <main v-cloak id="main">
+
+    <!-- Header -->
+    <header>
+      <component-header></component-header>
+    </header>
+
+    <!-- Page Content -->
+    <div class="component__main container">
+      <component :is="currentView" keep-alive="true"></component>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="component__footer">
+      <component-footer></component-footer>
+    </footer>
+
+    <!-- Login Modal -->
+    <page-login v-show="showLoginModal" transition="fade"></page-login>
+
+    <!-- Overlay -->
+    <div class="slideout-overlay" v-show="isMenuOpened" v-on:click="onClickMenuOverlay"></div>
+  </main>
+  
+
+  <!-- script -->
+  <% include partials/scripts %>
+</body>
+</html>

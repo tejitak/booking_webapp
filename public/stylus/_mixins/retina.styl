@@ -1,0 +1,27 @@
+/*
+    Retina用のmixinなど
+*/
+
+retina_spriteWidth($sprite, $scale = null)
+  width retina($sprite[4], $scale)
+
+retina_spriteHeight($sprite, $scale = null)
+  height retina($sprite[5], $scale)
+
+retina_spritePosition($sprite, $scale = null)
+  background-position retina($sprite[2], $scale) retina($sprite[3], $scale)
+
+retina_spriteSize($sprite, $scale = null)
+  background-size retina($sprite[6], $scale) retina($sprite[7], $scale)
+
+retina_sprite($sprite, $scale = null)
+  spriteImage($sprite, $scale)
+  retina_spritePosition($sprite, $scale)
+  retina_spriteWidth($sprite, $scale)
+  retina_spriteHeight($sprite, $scale)
+  retina_spriteSize($sprite, $scale)
+
+retina($x, $scale = null)
+  if $scale == null
+      $scale = 2
+  ceil($x / $scale)

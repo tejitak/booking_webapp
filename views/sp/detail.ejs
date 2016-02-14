@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/header %>
+</head>
+<body id="app">
+
+  <!-- Slide Nav -->
+  <nav class="component__nav" id="menu">
+    <component-nav :is-server-page="true"></component-nav>
+  </nav>
+
+  <!-- Main -->
+  <main v-cloak id="main">
+
+    <!-- Header -->
+    <header>
+      <component-header :is-server-page="true"></component-header>
+    </header>
+
+    <!-- Page Content -->
+    <div class="component__main container">
+      <div class="page__detail" v-el:main>
+        <div>
+            <div class="detail_location">
+                <a href="https://maps.google.com/maps/place/<%= data.item.geo.latitude %>%2C<%= data.item.geo.longitude %>" target="_blank">
+                  <div class="map togglemap" :style="{backgroundImage: 'url(https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=<%= data.item.geo.latitude %>%2C<%= data.item.geo.longitude %>&amp;visual_refresh=true&amp;zoom=13&amp;key=AIzaSyC6jozITVaSd0gm8aLLcL3hp7cq7btwkUc&amp;sensor=false&amp;size=640x400&amp;format=jpg)'}">
+                  <div class="pin"></div>
+                  </div>
+                </a>
+            </div>
+            <div class="detail_body">
+              <div class="detail_share">
+                <ul class="social_icon_wrap">
+                  <li class="social_icon_fb"><a href="javascript:;" @click="shareFacebook"></a></li>
+                  <li class="social_icon_tw"><a href="javascript:;" @click="shareTwitter"></a></li>
+                  <li class="social_icon_line"><a href="javascript:;" @click="shareLine"></a></li>
+                </ul>
+              </div>
+              <!-- server rendered detail_main -->
+              <%- html %>
+              <div class="detail_photos">
+                <h3>Popular Photos</h3>
+                <div v-show="item.photos.length">
+                  <div class="detail_flex">
+                    <div class="detail_card_wrap" v-for="photo in item.photos">
+                      <component-card :item="photo" :columns="3"></component-card>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="preview_overlay" v-show="selectedPhoto" transition="fade_layer"></div>
+        <div class="preview" v-if="selectedPhoto" transition="fade" @click="back">
+          <div class="preview_card">
+            <component-preview-card-list :selected-item="selectedPhoto" :images.sync="item.photos"></component-preview-card-list>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="component__footer">
+      <component-footer></component-footer>
+    </footer>
+
+    <!-- Login Modal -->
+    <page-login v-show="showLoginModal" transition="fade"></page-login>
+
+    <!-- Overlay -->
+    <div class="slideout-overlay" v-show="isMenuOpened" v-on:click="onClickMenuOverlay"></div>
+  </main>
+  
+
+  <!-- script -->
+  <% include partials/scripts %>
+</body>
+</html>

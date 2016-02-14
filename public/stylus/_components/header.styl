@@ -1,0 +1,160 @@
+header
+    width 100%
+    height 44px
+    display block
+    background-color #F54242
+
+    .component__header
+        background-color #F54242
+        position fixed
+        top 0
+        width 100%
+        z-index 2
+        trans_2(.4s)
+
+        .header_wrap
+            max-width 960px
+            margin 0 auto
+            color #fff
+            border-bottom-width 1px
+            border-top-width 0
+            position relative
+
+            &.header_page-search
+                .header_title
+                    text-align left
+                    margin-left 12px
+
+                    input
+                        width 220px
+
+        .header_title
+            height 43px
+            line-height 44px
+            margin 0 auto
+            min-width 30px
+            max-width 366px
+            overflow hidden
+            text-align center
+            white-space nowrap
+            position relative
+            
+            span
+                font-size 18px
+                font-weight 500
+                text-overflow ellipsis
+                
+            input
+                height 28px
+                color #fff
+                background-color transparent
+                border none
+                border-bottom 1px solid #fff
+                placeholder-color(#fff)
+                vendor('transition-property', width)
+                vendor('transition-duration', 0.2s)
+                vendor('transition-timing-function', ease)
+                vendor('transition-delay', 0s)
+
+        .button_left
+            bottom 5px
+            position absolute
+            left 5px
+            top 5px        
+
+        .button_right
+            bottom 5px
+            position absolute
+            right 5px
+            top 5px
+        
+        a.button_left, a.button_right
+            line-height 34px
+            font-size 14px
+            text-decoration none
+            color #fff
+            z-index 1
+
+    .header_query_popup
+        width 100%
+        overflow hidden
+        // max-height 318px
+        background-color #fff
+        color #333
+
+    .expand-transition
+        transition all .3s ease
+        height 392px
+        overflow hidden
+
+    .expand-enter, .expand-leave
+        height 0
+        opacity 0
+
+    .header_popup_overlay
+        position fixed
+        width 100%
+        height 100%
+        background-color #000
+        // opacity 0.6
+        z-index 1
+
+        &.overlay_all
+            z-index 2
+
+    .popup_overlay_tranparent
+        opacity 0.6
+
+    .header_share_popup
+        position fixed
+        width 280px
+        height 180px
+        top 50%
+        left 50%
+        margin-left -140px
+        margin-top -90px
+        z-index 3
+
+        .component__popup
+            width 100%
+            height 100%
+            background-color #fff
+
+// header animation
+.watchScrollHeader_show
+    .component__header, .detail_title_fixed
+        transform translate3d(0px, 0px, 0px)
+
+.watchScrollHeader_hide
+    .component__header, .detail_title_fixed
+        transform translate3d(0px, -44px, 0px)
+
+
+// for PC
+.component__header
+    .header_logo
+        display none
+        position absolute
+        top 15px
+        left 20px
+
+    .header_title
+        .icon_queries
+            display none
+
+        .header_search_cancel
+            display none
+            position absolute
+            top 4px
+            font-size 13px
+
+    .header_menu
+        display none
+        position absolute
+        right 20px
+        top 24px
+
+        li
+            float left
+            margin-left 20px
+            position relative

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HashDish</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="hashdish Tokyo is your mobile concierge for discovering the best local restaurants in Tokyo.">
+  <meta name="keywords" content="Japan, Tokyo, ramen, restaurants, travel, sushi, japanese, jiro, shibuya, Shinjuku, Roppongi, ginza">
+  <meta property="og:title" content="hashdish Tokyo" >
+  <meta property="og:type" content="product" />
+  <meta property="og:description" content="hashdish Tokyo is your mobile concierge for discovering the best local restaurants in Tokyo." />
+  <meta property="og:url" content="https://hashdish.com/" />
+  <meta property="og:image" content="https://hashdish.com/img/logo_black.png" />
+  <meta property="og:site_name" content="HashDish Tokyo" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@hashdish_tokyo" />
+  <!-- <link rel="shortcut icon" href="./favicon.ico" /> -->
+  <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body id="app">
+  <!-- Slide Nav -->
+  <nav class="component__nav" id="menu">
+    <component-nav></component-nav>
+  </nav>
+
+  <!-- Main -->
+  <main v-cloak id="main">
+
+    <!-- Header -->
+    <header class="component__header">
+      <component-header></component-header>
+    </header>
+
+    <!-- Page Content -->
+    <div class="component__main container">
+      <component :is="currentView" keep-alive="true"></component>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="component__footer">
+      <component-footer></component-footer>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="slideout-overlay" v-show="isMenuOpened" v-on:click="onClickMenuOverlay"></div>
+  </main>
+
+  
+  <!-- script -->
+  <script>
+  var OPTION = {
+    config: {
+      debug: true,
+      environment: "development",
+      loginUser: null,
+      baseUrl: 'https://hashdish.com',
+      labels: {"meta_title":"TownHunt Tokyo","meta_description":"TownHunt Tokyo is your mobile concierge for discovering the best local restaurants in Tokyo.","meta_keywords":"Japan, Tokyo, ramen, restaurants, travel, sushi, japanese, jiro, shibuya, Shinjuku, Roppongi, ginza","common_edit":"Edit","common_save":"Save","title_header_login":"Login","title_header_top":"Tokyo","title_header_queries":"Filter","title_header_detail":"Restaurant Detail","title_header_favorites":"My Favorites","title_header_mypage":"Account","title_header_payment_order":"Request Ticket","title_header_success":"Thank you","title_header_request_list":"My Bookings","title_header_request_detail":"Booking Detail","title_header_menu":"Menu","title_header_reserve_date_form":"Reservation","title_header_reserve_user_form":"Reservation","title_header_reserve_confirm":"Reservation","nav_explore":"Explore","nav_favorites":"Favorites","nav_about":"About","nav_wishlist":"Wish List","nav_earn":"Earn Credit","nav_settings":"Settings","nav_bookings":"My Bookings","nav_login":"Login","nav_logout":"Logout","about_title":"TownHunt Tokyo","about_desc1":"TownHunt is your mobile concierge for discovering the best local places - currently restaurants and bars - instantly.","about_desc2":"We curated only the top 100 well reviewed Japanese restaurants in 4 most popular areas in Tokyo: Shibuya, Shinjuku, Roppongi and Ginza/Shinbashi.","constants_Types_food-and-drinks":"Food & Drinks","constants_Types_shows":"Shows","constants_Types_luxury":"Luxury","constants_Types_wifi-and-transport":"Wifi & Transport","constants_Types_theme-parks":"Theme Parks","constants_Types_outdoor":"Outdoor","constants_Area_JP_tokyo_shibuya":"Shibuya","constants_Area_JP_tokyo_shinjuku":"Shunjuku","constants_Area_JP_tokyo_roppongi":"Roppongi","constants_Area_JP_tokyo_ginza-shinbash":"Ginza/Shinbash","constants_Genre_kappo_kaiseki":"Kappo-Kaiseki (Traditional Japanese)","constants_Genre_seafood":"Seafood","constants_Genre_izakaya":"Izakaya (tavern)","constants_Genre_sushi":"Sushi","constants_Genre_yakitori_kushiyaki":"Yakitori-Kushiyaki (grilled chicken)","constants_Genre_ramen_noodles":"Ramen-Noodles","constants_Genre_soba":"Soba","constants_Genre_shabu_shabu":"Shabu Shabu (japanese steamboat)","constants_Genre_sukiyaki":"Sukiyaki","constants_Genre_kyoto_cuisine":"Kyoto Cuisine","constants_Genre_tonkatsu":"Tonkatsu (pork cutlet)","constants_Genre_unagi":"Unagi (freshwater eel)","constants_Genre_oden":"Oden","constants_Genre_tenpura":"Tenpura","constants_Genre_teppanyaki":"Teppanyaki","constants_Genre_chicken":"Chicken","constants_Genre_sake":"Sake","constants_Genre_hot_pot":"Hot Pot","constants_Genre_yakiniku":"Yakiniku (bbq beef)","constants_Genre_kushiage":"Kushiage (fried skewer)","constants_Genre_okinawa_cuisine":"Okinawa Cuisine","constants_Genre_japanese_food":"Japanese Food","constants_Genre_regional_cuisine":"Regional Cuisine","constants_Genre_grilled_tripe":"Grilled Tripe","constants_Genre_bar":"Bar","constants_Genre_fried_foods":"Fried Foods","constants_Genre_japanese_fusion_cuisine":"Japanese Fusion Cuisine","constants_Genre_horumon":"Horumon (bbq offel)","constants_Genre_chinese":"Chinese","constants_Genre_donburi":"Donburi (rice bowl)","constants_Genre_tendon":"Tendon","constants_Genre_stand_bar":"Stand Bar","constants_Genre_standing_style":"Standing Style","constants_Genre_fugu":"Fugu (blowfish)","constants_Genre_steak":"Steak","constants_Genre_suppon":"Suppon","constants_Genre_french":"French","constants_Genre_beef":"Beef","constants_Genre_dishes":"Dishes","constants_Genre_robatayaki":"Robatayaki","constants_Genre_pork":"Pork","constants_Genre_udon":"Udon","constants_Genre_tsukemen":"Tsukemen","constants_Genre_tempura":"Tempura","constants_Genre_creative_cuisine":"Creative Cuisine","constants_Genre_grilled_pork":"Grilled Pork","constants_Genre_genghis_khan":"Genghis Khan","constants_Genre_barfowl":"Barfowl","constants_Genre_western":"Western","constants_Genre_curry":"Curry","constants_Genre_mizutaki":"Mizutaki","constants_Genre_champon":"Champon","constants_Genre_bistro":"Bistro","constants_Genre_oyster_bar":"Oyster Bar","constants_Genre_wine_bar":"Wine Bar","constants_Genre_motsunabe":"Motsunabe (offel hot pot)","constants_Genre_vegetable_dishes":"Vegetable Dishes","constants_Genre_sumibiyaki":"Sumibiyaki","constants_Genre_shojin_cuisine":"Shojin Cuisine","constants_Genre_cafe_bar":"Cafe Bar","constants_Genre_oyakodon":"Oyakodon","constants_Genre_gyutan":"Gyutan","constants_Genre_crab":"Crab","constants_Genre_shochu":"shochu (japanese spirits)","constants_Genre_cafe":"Cafe","constants_Genre_kaitenzushi":"Kaitenzushi","constants_Genre_takoyaki":"Takoyaki","constants_Genre_tofu":"Tofu","constants_Genre_yuba":"Yuba","constants_Genre_ryokan":"Ryokan","constants_Genre_bento":"Bento (lunch box)","constants_Genre_okonomiyaki":"Okonomiyaki","constants_Genre_monjyayaki":"Monjayaki","constants_Genre_croquette":"croquette","constants_Genre_dumplings":"dumplings","constants_Genre_sweets":"sweets","constants_Genre_onigiri":"onigiri (rice ball)","constants_Genre_spain":"Spain","constatns_Genre_whale":"Whale","constants_DayOfWeek_sunday":"Sunday","constants_DayOfWeek_monday":"Monday","constants_DayOfWeek_tuesday":"Tuesday","constants_DayOfWeek_wednesday":"Wednesday","constants_DayOfWeek_thursday":"Thursday","constants_DayOfWeek_friday":"Friday","constants_DayOfWeek_saturday":"Saturday","constants_DayOfWeek_holiday":"Holiday","constants_DayOfWeek_irregular":"Irregular","constants_PriceRange__¥3000":"Up to ¥3,000","constants_PriceRange_¥3000_¥4000":"¥3,000 - ¥4,000","constants_PriceRange_¥4000_¥5000":"¥4,000 - ¥5,000","constants_PriceRange_¥5000_¥8000":"¥5,000 - ¥8,000","constants_PriceRange_¥8000_¥10000":"¥8,000 - ¥10,000","constants_PriceRange_¥10000_":"Over ¥10,000","_dummy":null}
+    }
+  };
+  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+  <script src="/dist/app.js"></script>
+</body>
+</html>

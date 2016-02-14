@@ -1,0 +1,54 @@
+/*
+  Footer
+*/
+
+.component__footer
+  clearfix()
+  width 100%
+
+  .footer_navigations
+    clearfix()
+
+    a
+      @extend .navigation-hover
+
+    .nav_item
+      letter-spacing .1em
+      float left
+      inline-block(.2)
+      font-size 14px
+      font-weight bold
+      margin-right 30px
+      color #5f5f5f
+      
+      &.deactive
+        opacity .2
+      &:last-child
+        margin-right 0
+  
+  .copyright
+    position absolute
+    right 27px
+    top 44px
+    width 240px
+    fontsize 11px
+    color #b4b3b3
+    font-family robot
+    letter-spacing .1em
+    text-align right
+    a
+      trans_1(.2s)
+      color #5f5f5f
+      text-decoration none
+    
+  .footer_menu
+    display none
+    a
+      trans_1(.2s)
+      color #5f5f5f
+      text-decoration none
+      fontsize 16px
+      font-weight bold
+
+      &:hover
+        color #1c94c1

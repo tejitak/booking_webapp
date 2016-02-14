@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HashDish</title>
+  <meta property="og:title" content="HashDish" >
+  <meta property="og:type" content="product" />
+  <meta property="og:description" content="HashDish" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="HashDish" />
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- <link rel="shortcut icon" href="./favicon.ico" /> -->
+  <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/css/pc.css" />
+</head>
+<body id="app">
+  <!-- Slide Nav -->
+  <!--nav class="component__nav" id="menu">
+    <component-nav></component-nav>
+  </nav-->
+
+  <!-- Main -->
+  <main v-cloak id="main">
+
+    <!-- Header -->
+    <header class="component__header">
+      <component-header></component-header>
+    </header>
+
+    <!-- Page Content -->
+    <div class="component__main container">
+      <component is="{{currentView}}"></component>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="component__footer">
+      <component-footer></component-footer>
+    </footer>
+
+  </main>
+
+  <!-- script -->
+  <script>
+  var OPTION = {
+    config: {
+      debug: true,
+      environment: "development",
+      isLoggedIn: false
+    }
+  };
+  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+  <script src="/dist/pc.js"></script>
+</body>
+</html>

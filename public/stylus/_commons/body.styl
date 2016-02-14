@@ -1,0 +1,123 @@
+/*
+    body
+*/
+html, body
+  width 100%
+  height 100%
+  padding 0
+  margin 0
+    
+body
+  margin 0
+  font-family 'Roboto', 'Lucida Grande','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif
+  width 100%
+  background-color #fff
+  // background-color #F54242
+  color #333
+  font-size 14px
+
+main
+  width 100%
+  height 100%
+  background-color #fff
+  color #333
+
+a
+  color #fff
+  text-decoration none
+
+a:hover
+  text-decoration underline
+
+ul
+  list-style none
+
+.float_left
+  float left
+
+.clearfix
+  clearfix()
+
+// corporate pages e.g. /co/terms
+.co_main
+  padding 20px
+
+// vue.js initialization
+[v-cloak]
+  display none
+
+// slideout
+.slideout-menu
+  position fixed
+  left 0
+  top 0
+  bottom 0
+  right 0
+  z-index 0
+  width 256px
+  overflow-y auto
+  -webkit-overflow-scrolling touch
+  display none
+
+.slideout-panel
+  position relative
+  z-index 1
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel
+  overflow hidden
+
+.slideout-open .slideout-menu
+  display block
+
+.slideout-open .slideout-panel
+  border-left 1px solid #aaa
+
+.slideout-overlay
+  position absolute
+  width 100%
+  height 100%
+  top 0
+  left 0
+  z-index 999
+  background-color #000
+  opacity 0.4
+
+// for preview
+.preview
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  z-index 3
+
+  .preview_card
+    display table
+    height 100%
+    width 100%
+    max-width 620px
+    margin 0 auto
+      
+    .component__previewCard
+      display table-cell
+      vertical-align middle
+
+      .card_bg
+        margin 0 auto
+
+// vue transition
+.fade-transition
+  transition all .3s ease
+  opacity 1
+
+.fade-enter, .fade-leave
+  opacity 0
+
+.fade_layer-transition
+  transition all .3s ease
+  opacity 0.9
+
+.fade_layer-enter, .fade_layer-leave
+  opacity 0

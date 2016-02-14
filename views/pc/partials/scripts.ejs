@@ -1,0 +1,12 @@
+<script>
+var OPTION = {
+    config: {
+      debug: false,
+      locale: "<%= locale %>",
+      labels: <%- JSON.stringify(labels) %>
+    },
+    data: <%- JSON.stringify(data) %>
+};
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="/dist/<%= jsFile %>"></script>

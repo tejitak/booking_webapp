@@ -1,0 +1,13 @@
+{
+  "applications": {
+    "_default": {
+      "link": "hashdish_dev"
+    },
+    "hashdish_dev": {
+      "applicationId": "UWpbghDJkaUvNUuynhtTCfY89vJPbHpZ4gTfXxUM"
+    },
+    "hashdish_production": {
+      "applicationId": "EmsGyNvyX6ZBW8gNk4opHosJ6UYkNTJCSepCicyj"
+    }
+  }
+}

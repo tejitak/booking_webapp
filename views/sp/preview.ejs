@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/header %>
+    <style>
+      main {
+        background-color: #000;
+      }
+      /* additional styles */
+      .preview_card {
+        max-width: 620px;
+        margin: 0 auto;
+      }
+      .component__previewCard .card_bg {
+        margin: 40px auto 20px auto;
+      }
+    </style>
+</head>
+<body id="app">
+
+  <!-- Slide Nav -->
+  <nav class="component__nav" id="menu">
+    <component-nav :is-server-page="true"></component-nav>
+  </nav>
+
+  <!-- Main -->
+  <main v-cloak id="main">
+
+    <!-- Header -->
+    <header>
+      <component-header :is-server-page="true"></component-header>
+    </header>
+
+    <!-- Page Content -->
+    <div class="component__main container">
+      <div class="preview_card" v-show="itemHeight">
+        <component-preview-card :photo.sync="item" :show-restaurant-link="true" :height="itemHeight"></component-preview-card>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="component__footer">
+      <component-footer></component-footer>
+    </footer>
+
+    <!-- Login Modal -->
+    <page-login v-show="showLoginModal" transition="fade"></page-login>
+
+    <!-- Overlay -->
+    <div class="slideout-overlay" v-show="isMenuOpened" v-on:click="onClickMenuOverlay"></div>
+  </main>
+  
+
+  <!-- script -->
+  <% include partials/scripts %>
+</body>
+</html>

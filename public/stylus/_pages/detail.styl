@@ -1,0 +1,202 @@
+.page__detail
+  .detail_body
+    max-width 960px
+    margin 0 auto
+    position relative
+
+  .detail_title_fixed
+    color #515356
+    font-size 17px
+    padding 12px
+    position fixed
+    background #fff
+    width 100%
+    z-index 1
+    border-bottom 2px solid #666
+    trans_2(.4s)
+
+    .detail_total_like_count
+      position absolute
+      right 34px
+      top 16px
+      color red
+
+  .detail_share
+    display none
+    position absolute
+    top 0
+    right 40px
+    z-index 1
+
+  .map
+    background-size cover
+    background-position 0 50%
+    border-bottom 1px solid #ddd
+    border-top-left-radius 4px
+    border-top-right-radius 4px
+    cursor pointer
+    height 220px
+    position relative
+    // transition height 0.2s ease 0s, box-shadow 0.2s ease 0s
+
+    .pin
+      height 38px
+      left 50%
+      margin-left -12px
+      margin-top -28px
+      position absolute
+      top 50%
+      width 25px
+      background rgba(0, 0, 0, 0) url("/img/icons/destination.png") repeat scroll center bottom / cover
+    
+  .detail_banner_bg
+    width 100%
+    height 160px
+    display inline-block
+    background-position center center
+    background-repeat no-repeat
+    background-size cover
+          
+  .detail_title
+      font-size 16px
+      font-weight 700
+      color #333
+
+  .detail_location
+      position fixed
+      text-align center
+      top 0
+      left 0
+      width 100%
+
+  .detail_table
+      position relative
+      display table
+      height 40px
+      width 100%
+
+  .detail_middle
+      display table-cell
+      position relative
+      vertical-align middle
+
+  .detail_right
+      width 40px
+      display table-cell
+      position relative
+      vertical-align middle
+      text-align right
+
+  .detail_now_open, .detail_today
+    color #F5A623
+
+  .detail_readmore
+    text-align center
+    color #F54242
+    font-size 14px
+
+    &:after
+      content ''
+      margin 8px auto 0 auto
+      display block
+      overflow hidden
+      background-repeat no-repeat
+      text-align left
+      text-indent -9999px
+      sprite($sprite_arrow_bottom)
+
+    &.detail_readmore_opened:after
+      content none
+      
+  .detail_main
+    padding 12px
+    position relative
+    margin-top 125px
+    background #fff
+    
+    h3, p
+      margin 8px 0
+        
+    p 
+      word-break break-all
+
+    a.tel
+      text-decoration underline
+    
+    ul 
+      list-style disc
+    ol
+      padding 0
+      list-style decimal
+
+    li
+      border none
+      padding 0
+      margin 4px 0
+      list-style-position inside
+
+    dl
+      border none
+
+    .detail_address a
+      color #F54242
+      color #F54242
+      font-size 15px
+
+  .detail_photos
+    background-color #fff
+    position relative
+    h3
+      font-size 17px
+      color #515356
+      padding 8px 12px
+          
+  .detail_description
+      padding 12px
+      border-top 2px solid #666
+
+  .detail_sns_wrap
+      margin-top 12px
+      padding 8px 0 0 0
+      text-align right
+      a
+          margin 0 4px
+
+  .detail_flex
+    display -ms-flex
+    display -webkit-flex
+    display flex
+    flex-wrap wrap
+
+    .detail_card_wrap
+      width 33.3%
+
+  .detail_footer
+    width 100%
+
+    .btn_submit_fav
+      width 50%
+
+  .detail_photo_preview
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height 100%
+    z-index 3
+    background rgba(0, 0, 0, 0.6) none repeat scroll 0 0
+
+  .component_table .table_row
+    .table_cell
+      border-bottom 1px solid #b4b4b4
+      padding-bottom 12px
+
+      &.table_cell_left
+        color #B4B4B4
+        font-size 14px
+
+      &.table_cell_right
+        color #7E7E7E
+        font-size 14px
+        a
+          color #7E7E7E
