@@ -34,7 +34,7 @@ module.exports = {
   ],
 
   cookieNames: {
-    session: 'hashdish.session'
+    session: 'bookingapp.session'
   },
 
   blankOptionValue: '_default',

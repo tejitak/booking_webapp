@@ -1,11 +1,5 @@
-HashDish WebApp
+Booking WebApp
 ==============
-
-## Develop
-http://hashdish-webapp-dev.herokuapp.com
-
-## Production
-http://hashdish.com
 
 ## Front-end Dev Setup
 
