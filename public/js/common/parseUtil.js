@@ -122,24 +122,8 @@ export default {
       this._request({
         url: config.api.url + '/booking/' + listingId
       }).then((response) => {
-        resolve(response.result)
+        resolve(response)
       }, reject)
-    })
-  },
-
-  fetchInstagramer (id) {
-    return new Promise((resolve, reject) => {
-      this._request({
-        url: config.api.url + '/functions/instagramer_page',
-        data: {
-          instagramerId: id,
-          timezoneOffset: -(new Date().getTimezoneOffset())
-        },
-        contentType: 'text/plain',
-        type: 'POST'
-      }).then((response) => {
-        resolve(response.result)
-      })
     })
   },
 
@@ -151,11 +135,9 @@ export default {
           data: {
             demo: true,
             timezoneOffset: -(new Date().getTimezoneOffset())
-          },
-          contentType: 'text/plain',
-          type: 'POST'
+          }
         }).then((response) => {
-          resolve(response.result)
+          resolve(response)
         })
       }).catch((e) => {
         this._app.$emit('showLoginModal')
@@ -167,11 +149,9 @@ export default {
     return new Promise((resolve, reject) => {
       this._request({
         url: config.api.url + '/functions/suggestions',
-        data: params,
-        contentType: 'text/plain',
-        type: 'POST'
+        data: params
       }).then((response) => {
-        resolve(response.result)
+        resolve(response)
       }, reject)
     })
   },
@@ -183,7 +163,6 @@ export default {
         this._request({
           url: config.api.url + '/functions/like',
           data: {photoId: photoId},
-          contentType: 'text/plain',
           type: 'POST'
         })
       }).catch((e) => {
@@ -199,7 +178,6 @@ export default {
         this._request({
           url: config.api.url + '/functions/unlike',
           data: {photoId: photoId},
-          contentType: 'text/plain',
           type: 'POST'
         })
       }).catch((e) => {

@@ -24,12 +24,12 @@
       </div>
     </div>
     <div class="card_info">
-      <span>{{photo.restaurant.name_ja}}</span>
+      <span>{{photo.name}}</span>
     </div>
-    <div class="card_text" v-show="photo.tags.length > 0">
-      <a v-for="tag in photo.tags" href="javascript:;" @click.stop="onClickTagLink(tag)">
-        #{{tag}}
-      </a>&nbsp;
+    <div class="card_text">
+      <a href="javascript:;" @click.stop="onClickAddress(photo.address)">
+        {{address}}
+      </a>
     </div>
     <div class="card_actions" v-el:card-actions>
       <div class="card_actions_inner">

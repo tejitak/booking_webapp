@@ -31,13 +31,16 @@ module.exports = {
   "mypage_no_liked_photos": "还没有点赞",
 
   "detail_table_title_phone": "电话号码",
+  "detail_table_title_url": "Hotel URL",
   "detail_table_title_budget": "预算",
   "detail_table_title_open_hours": "营业时间",
   "detail_table_title_shop_holidays": "固定休业日",
   "detail_table_title_cards": "卡",
   "detail_table_title_smoking_availability": "禁烟・吸烟",
-  "detail_table_title_number_of_seats": "座位数",
+  "detail_table_title_number_of_rooms": "房间数",
   "detail_table_title_tags": "标签",
+  "detail_table_title_public_ranking": "Publish Ranking",
+  "detail_table_title_review_score": "Review Score",
   "detail_title_popular_photos": "受欢迎的照片",
 
   "login_title": "可用照片搜索附近的最佳餐厅。",

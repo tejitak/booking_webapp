@@ -55,13 +55,16 @@ module.exports = {
   "mypage_no_liked_photos": "まだイイねをしていません。",
 
   "detail_table_title_phone": "電話番号",
+  "detail_table_title_url": "Hotel URL",
   "detail_table_title_budget": "予算",
   "detail_table_title_open_hours": "営業時間",
   "detail_table_title_shop_holidays": "定休日",
   "detail_table_title_cards": "カード",
   "detail_table_title_smoking_availability": "禁煙・喫煙",
-  "detail_table_title_number_of_seats": "席数",
+  "detail_table_title_number_of_rooms": "部屋数",
   "detail_table_title_tags": "ハッシュタグ",
+  "detail_table_title_public_ranking": "Publish Ranking",
+  "detail_table_title_review_score": "Review Score",
   "detail_title_popular_photos": "人気の写真",
 
   "login_title": "写真で探せるあなたの近くの最高のレストラン。",

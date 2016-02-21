@@ -2,8 +2,8 @@
   <div class="page__detail" v-el:main>
     <div v-if="initialized && item">
         <div class="detail_location">
-            <a href="https://maps.google.com/maps/place/{{item.geo.latitude}}%2C{{item.geo.longitude}}" target="_blank">
-              <div class="map togglemap" :style="{backgroundImage: 'url(https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=' + item.geo.latitude + '%2C' + item.geo.longitude + '&amp;visual_refresh=true&amp;zoom=13&amp;key=AIzaSyC6jozITVaSd0gm8aLLcL3hp7cq7btwkUc&amp;sensor=false&amp;size=640x400&amp;format=jpg)'}">
+            <a href="https://maps.google.com/maps/place/{{item.location[1]}}%2C{{item.location[0]}}" target="_blank">
+              <div class="map togglemap" :style="{backgroundImage: 'url(https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=' + item.location[1] + '%2C' + item.location[0] + '&amp;visual_refresh=true&amp;zoom=13&amp;key=AIzaSyC6jozITVaSd0gm8aLLcL3hp7cq7btwkUc&amp;sensor=false&amp;size=640x400&amp;format=jpg)'}">
               <div class="pin"></div>
               </div>
             </a>
@@ -106,6 +106,9 @@ export default {
       this.showLoading = true
       parseUtil.fetchListing(id).then((data) => {
         if (!this.$root) { return }
+        // TEMP: set cover photo as photos array
+        data.photos = [{_id: data._id, photo_url: data.photo_url}]
+
         this.item = data
         // set title
         document.title = this.item.name

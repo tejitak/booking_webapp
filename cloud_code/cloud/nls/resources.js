@@ -55,13 +55,16 @@ module.exports = {
   "mypage_no_liked_photos": "You have not liked photos yet.",
 
   "detail_table_title_phone": "Tel",
+  "detail_table_title_url": "Hotel URL",
   "detail_table_title_budget": "Budget",
   "detail_table_title_open_hours": "Open Hours",
   "detail_table_title_shop_holidays": "Closed on",
   "detail_table_title_cards": "Credit Card",
   "detail_table_title_smoking_availability": "Smoking",
-  "detail_table_title_number_of_seats": "Number of Seats",
+  "detail_table_title_number_of_rooms": "Number of Rooms",
   "detail_table_title_tags": "Hashtags",
+  "detail_table_title_public_ranking": "Publish Ranking",
+  "detail_table_title_review_score": "Review Score",
   "detail_title_popular_photos": "Popular Photos",
 
   "login_title": "Find The Best Dish in Tokyo Through Pictures",

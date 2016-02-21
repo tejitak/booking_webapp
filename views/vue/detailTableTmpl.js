@@ -2,20 +2,24 @@
 
 module.exports = `
     <div class="detail_main">
-      <h1 class="detail_title">{{item['name_ja']}} / {{item['name_en']}}</h1>
+      <h1 class="detail_title">{{item.name}}</h1>
       <div class="detail_address">
-        <a href="https://maps.google.com/maps/place/{{item.geo.latitude}}%2C{{item.geo.longitude}}" target="_blank">
+        <a href="https://maps.google.com/maps/place/{{item.location[1]}}%2C{{item.location[0]}}" target="_blank">
           <span class="icon_address"></span>
-          {{item.location.displayed_address}}
+          {{item.address}}
         </a>
+      </div>
+      <hr>
+      <div>
+        {{item.desc_en}}
       </div>
       <div class="component_table">
         <div class="table_row">
             <div class="table_cell table_cell_left">
-                <label>{{labels.detail_table_title_phone}}</label>
+                <label>{{labels.detail_table_title_url}}</label>
             </div>
             <div class="table_cell table_cell_right">
-                <a class="tel" href="tel:{{item.contact.phone}}">{{item.contact.phone}}</a>
+              <a :href="item.hotel_url">{{item.hotel_url}}</a>
             </div>
         </div>
         <div class="table_row">
@@ -23,20 +27,7 @@ module.exports = `
                 <label>{{labels.detail_table_title_budget}}</label>
             </div>
             <div class="table_cell table_cell_right">
-                {{{item.displayed_budgets | displayBudget}}}
-            </div>
-        </div>
-        <div class="table_row">
-            <div class="table_cell table_cell_left" style="border-bottom: none;">
-                <label>{{labels.detail_table_title_open_hours}}</label>
-            </div>
-            <div class="table_cell table_cell_right" style="border-bottom: none;">
-              <div>
-                {{labels.common_today}} <span class="detail_now_open">{{{item.open_now | displayNowOpen}}}</span>
-              </div>
-              <div>
-                {{item.displayed_open_hours | displayTodayOpenHours}}
-              </div>
+                {{item.minrate}} - {{item.maxrate}} ({{item.currencycode}})
             </div>
         </div>
       </div>
@@ -47,52 +38,26 @@ module.exports = `
         <div class="component_table">
           <div class="table_row">
               <div class="table_cell table_cell_left">
-                  <label></label>
+                  <label>{{labels.detail_table_title_number_of_rooms}}</label>
               </div>
               <div class="table_cell table_cell_right">
-                {{{item.displayed_open_hours | displayOpenHours}}}
+                  {{item.nr_rooms}}
               </div>
           </div>
           <div class="table_row">
               <div class="table_cell table_cell_left">
-                  <label>{{labels.detail_table_title_shop_holidays}}</label>
+                  <label>{{labels.detail_table_title_public_ranking}}</label>
               </div>
               <div class="table_cell table_cell_right">
-                  {{item.displayed_shop_holidays}}
+                  {{item.public_ranking}}
               </div>
           </div>
           <div class="table_row">
               <div class="table_cell table_cell_left">
-                  <label>{{labels.detail_table_title_cards}}</label>
+                  <label>{{labels.detail_table_title_review_score}}</label>
               </div>
               <div class="table_cell table_cell_right">
-                  {{item.displayed_cards}}
-              </div>
-          </div>
-          <div class="table_row">
-              <div class="table_cell table_cell_left">
-                  <label>{{labels.detail_table_title_smoking_availability}}</label>
-              </div>
-              <div class="table_cell table_cell_right">
-                  {{item.displayed_smoking}}
-              </div>
-          </div>
-          <div class="table_row">
-              <div class="table_cell table_cell_left">
-                  <label>{{labels.detail_table_title_number_of_seats}}</label>
-              </div>
-              <div class="table_cell table_cell_right">
-                  {{item.displayed_number_of_seats}}
-              </div>
-          </div>
-          <div class="table_row">
-              <div class="table_cell table_cell_left">
-                  <label>{{labels.detail_table_title_tags}}</label>
-              </div>
-              <div class="table_cell table_cell_right">
-                <a v-for="tag in item.tags" href="{{tag | displayTagLink}}">
-                  #{{tag}}
-                </a>&nbsp;
+                  {{item.review_score}}
               </div>
           </div>
         </div>
