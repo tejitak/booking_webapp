@@ -15,13 +15,24 @@ router.get('/', (req, res, next) => {
   // near[latitude]:35.6560676
   // near[longitude]:139.7040436
   const near = req.query.near
+  const box = req.query.box
   var query = {}
-  if (near) {
+  if (box && box.length > 1) {
+    query.location = {
+      '$geoWithin': {
+        '$box': [
+          [box[0]['longitude'], box[0]['latitude']],
+          [box[1]['longitude'], box[1]['latitude']]
+        ]
+      }
+    }
+  } else if (near) {
     query.location = {
       '$nearSphere': [near['longitude'], near['latitude']],
       '$maxDistance': 5
     }
   }
+  console.log('query: ', query)
   Booking.find(query)
     .limit(limit)
     .skip(skip)
@@ -49,7 +60,6 @@ router.get('/:id', (req, res, next) => {
       if (err || !item) {
         return res.send(err)
       }
-      console.log(item)
       // add distance to photos
       util.addDistanceProps([item], req.query.currentGeo)
       res.send(item)

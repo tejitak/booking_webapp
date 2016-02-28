@@ -209,9 +209,9 @@ var Component = {
         if (!this._map.exists(photo._id)) {
           this._map.addMarker({
             id: photo._id,
-            lat: photo.geo.latitude,
-            lng: photo.geo.longitude,
-            imageUrl: photo.url_m,
+            lat: photo.location[1],
+            lng: photo.location[0],
+            imageUrl: photo.photo_url,
             onClickMarker() {
               that.$dispatch('onSelectCard', photo)
             }
@@ -295,7 +295,11 @@ var Component = {
       // set as selected photo
       this.selectedPhoto = photo
       // move to center position
-      this._map.setCenter(photo.geo).then(() => {
+      const geo = {
+        latitude: photo.location[1],
+        longitude: photo.location[0]
+      }
+      this._map.setCenter(geo).then(() => {
         // load by the selected location
         this.loadByCenterLocation(true/* more */)
       })

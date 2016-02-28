@@ -37,7 +37,6 @@ var util = {
             latitude: photo.location[1]
           }, currentLocation)
         }
-        console.log(photo.distance)
       })
     }
   },
