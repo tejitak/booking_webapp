@@ -32,7 +32,6 @@ router.get('/', (req, res, next) => {
       '$maxDistance': 5
     }
   }
-  console.log('query: ', query)
   Booking.find(query)
     .limit(limit)
     .skip(skip)

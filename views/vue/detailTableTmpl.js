@@ -19,7 +19,7 @@ module.exports = `
                 <label>{{labels.detail_table_title_url}}</label>
             </div>
             <div class="table_cell table_cell_right">
-              <a :href="item.hotel_url">{{item.hotel_url}}</a>
+              <a :href="item.hotel_url + '?aid=951743'" target="_blank">{{item.hotel_url}}</a>
             </div>
         </div>
         <div class="table_row">

@@ -1,14 +1,15 @@
 <template>
   <div class="page__search">
     <div class="search_tabbar_wrap">
-      <ins class="bookingaff" data-aid="948362" data-target_aid="919217" data-prod="nsb" data-width="300" data-height="250">
+      <ins class="bookingaff" data-aid="951744" data-target_aid="951743" data-prod="nsb" data-width="300" data-height="250">
         <!-- Anything inside will go away once widget is loaded. -->
-        <a href="//www.booking.com?aid=919217">Booking.com</a>
+        <a href="//www.booking.com?aid=951743">Booking.com</a>
       </ins>
   </div>
 </template>
 
 <script>
+import $ from 'npm-zepto'
 import config from '../../common/config'
 import cache from '../../common/cache'
 import util from '../../common/util'

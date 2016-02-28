@@ -5,7 +5,7 @@
         <a class="header_logo" href="/"><span class="icon_logo_s"></span></a>
         <a class="button_left {{left.icon}}" v-on:click="leftCallback" v-if="left.icon != 'none'" href="javascript:;">{{{left.label}}}</a>
         <div class="header_title" v-on:click="scrollTop" :style="{visibility: center.hidden ? 'hidden' : 'visible'}">
-          <input type="text" v-model="searchTag" placeholder="{{labels.header_search_placeholder}}" @focus="onSearchFocus" @keyup.enter="onSearchKeyEnter" debounce="200" v-el:search-input>
+          <input type="text" v-model="searchTag" placeholder="{{labels.header_search_placeholder}}" @focus="onSearchFocus">
           <a href="javascript:;" class="icon_queries" @click="togglePopupQueires"></a>
           <a href="javascript:;" class="header_search_cancel" @click="back">{{labels.common_cancel}}</a>
         </div>
@@ -81,7 +81,6 @@ export default {
         icon: '',
         callback: null
       },
-      searchTag: '',
       isSearchResult: false,
       currentComponentId: '',
       // header menus
@@ -111,20 +110,9 @@ export default {
       // FIXME: close opened popup
       this.showPopupQueries = false
       this.showPopupShare = false
-      this.isSearchResult = !!Query.getInstance().params.tag
       this.updateHeader(options.componentId)
     })
     this.$on('togglePopupQueires', this.togglePopupQueires.bind(this))
-    // listen updateSearchTag and search
-    this.$on('updateSearchTag', this.updateSearchTag.bind(this))
-    // watch with debounce
-    // http://rc.vuejs.org/guide/forms.html#debounce
-    this.$watch('searchTag', this.onSearchKeyInput.bind(this))
-    // hide popup by search
-    this.$on('prePerformSearch', () => {
-      this.showPopupQueries = false
-      this.showPopupShare = false
-    })
     this.isLoggedIn = parseUtil.isLoggedIn()
   },
 
@@ -134,16 +122,6 @@ export default {
       return {
         icon: 'icon_menu',
         callback: that.toggleMenu
-      }
-    },
-
-    backToSearch() {
-      var that = this
-      return {
-        icon: 'icon_back',
-        callback() {
-          that.move('#/search')
-        }
       }
     },
 
@@ -206,12 +184,12 @@ export default {
           break
         case 'page-top':
           this.center = { hidden: false }
-          this.left = this.isSearchResult ? this.backToSearch() : this.iconDefaultLeft()
+          this.left = this.iconDefaultLeft()
           this.right = this.iconQueries()
           break
         case 'page-map':
           this.center = { hidden: false }
-          this.left = this.isSearchResult ? this.backToSearch() : this.iconDefaultLeft()
+          this.left = this.iconDefaultLeft()
           this.right = this.iconQueries()
           break
         case 'page-search':
@@ -305,26 +283,12 @@ export default {
       this.move('#/search')
     },
 
-    onSearchKeyInput() {
-      this.$dispatch('onSearchTagInput', this.searchTag)
-    },
-
-    onSearchKeyEnter() {
-      this.$els.searchInput.blur()
-    },
-
     onSave(componentId) {
       this.$dispatch('onSave', componentId)
     },
 
     scrollTop() {
       util.scrollTo(document.body, 0, 200)
-    },
-
-    updateSearchTag(tag) {
-      this.searchTag = tag
-      // broadcast to children
-      return true
     },
 
     shareTwitter() {
