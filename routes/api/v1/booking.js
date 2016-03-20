@@ -33,6 +33,7 @@ router.get('/', (req, res, next) => {
     }
   }
   Booking.find(query)
+    .populate('photos')
     .limit(limit)
     .skip(skip)
     // .sort({name: 'asc'})
@@ -54,7 +55,7 @@ router.get('/', (req, res, next) => {
 /* GET Booking Detail from DB */
 router.get('/:id', (req, res, next) => {
   // Booking.findOne({_id: new mongoose.Types.ObjectId(req.params.id)})
-  Booking.findOne({'_id': req.params.id})
+  Booking.findOne({'_id': req.params.id}).populate('photos')
     .exec((err, item) => {
       if (err || !item) {
         return res.send(err)

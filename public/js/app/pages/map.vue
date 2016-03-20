@@ -211,7 +211,7 @@ var Component = {
             id: photo._id,
             lat: photo.location[1],
             lng: photo.location[0],
-            imageUrl: photo.photo_url,
+            imageUrl: photo.photos[0].url,
             onClickMarker() {
               that.$dispatch('onSelectCard', photo)
             }

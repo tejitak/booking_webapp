@@ -1,4 +1,4 @@
-]<template>
+<template>
   <div class="component__filterInfo" v-show="query | displayFilterInfo">
     <div class="filterInfo" @click="onClickFilterInfo">
       <span>{{query | displayFilterInfo}}</span>

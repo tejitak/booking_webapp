@@ -22,7 +22,7 @@ const BookingSchema = new Schema({
   nr_rooms: { type: String },
   public_ranking: { type: String },
   hotel_url: { type: String },
-  photo_url: { type: String },
+  photos: [{ type: Schema.Types.ObjectId, ref: 'Photo' }],
   desc_en: { type: String },
   desc_fr: { type: String },
   desc_es: { type: String },

@@ -1,6 +1,6 @@
 <template>
     <a v-on:click="onClickItem" href="javascript:;" class="component__card">
-      <div class="card_bg" v-bind:style="{backgroundImage: 'url(' + item.photo_url + ')'}">
+      <div class="card_bg" v-bind:style="{backgroundImage: 'url(' + item.photos[0].url + ')'}">
         <div class="card_wrap" :style="imgStyle"></div>
         <div class="card_info_wrap" v-show="showInfo">
           <div class="card_info_section">

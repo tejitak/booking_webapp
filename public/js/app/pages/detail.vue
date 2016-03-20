@@ -21,8 +21,8 @@
             <h3>{{labels.detail_title_popular_photos}}</h3>
             <div v-show="item.photos.length">
               <div class="detail_flex">
-                <div class="detail_card_wrap" v-for="photo in item.photos">
-                  <component-card :item="photo" :columns="3"></component-card>
+                <div class="detail_card_wrap">
+                  <component-card :item="item" :columns="3"></component-card>
                 </div>
               </div>
             </div>
@@ -106,9 +106,6 @@ export default {
       this.showLoading = true
       parseUtil.fetchListing(id).then((data) => {
         if (!this.$root) { return }
-        // TEMP: set cover photo as photos array
-        data.photos = [{_id: data._id, photo_url: data.photo_url}]
-
         this.item = data
         // set title
         document.title = this.item.name

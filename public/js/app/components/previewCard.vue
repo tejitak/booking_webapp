@@ -91,7 +91,7 @@ export default {
         return {
           width: this.height + 'px',
           height: this.height + 'px',
-          backgroundImage: 'url(' + this.photo.photo_url + ')'
+          backgroundImage: 'url(' + this.photo.photos[0].url + ')'
         }
       } else {
         var $win = $(window)
@@ -99,7 +99,7 @@ export default {
         var h = $win.height() - 80 - 40 /* min height of actions + margin */
         var len = Math.min(w, h)
         return {
-          backgroundImage: 'url(' + this.photo.photo_url + ')',
+          backgroundImage: 'url(' + this.photo.photos[0].url + ')',
           width: len + 'px',
           height: len + 'px'
         }

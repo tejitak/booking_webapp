@@ -91,21 +91,6 @@ router.get('/detail/:id', (req, res, next) => {
           }
         },
         filters: {
-          displayBudget: (value) => {
-            return filter.displayBudget(value, labels)
-          },
-          displayNowOpen: (value) => {
-            return filter.displayNowOpen(value, labels)
-          },
-          displayTodayOpenHours: (value) => {
-            return filter.displayTodayOpenHours(value, labels)
-          },
-          displayOpenHours: (value) => {
-            return filter.displayOpenHours(value, labels)
-          },
-          displayTagLink: (tags) => {
-            return filter.displayTagLink(tags)
-          }
         }
       })
       vm.$on('vueServer.htmlReady', (html) => {
@@ -127,49 +112,8 @@ router.get('/detail/:id', (req, res, next) => {
       },
       meta: {
         title: filter.labelFormat('meta_title_detail', [item['name_ja'], item['name_en']], labels),
-        keywords: item.tags,
-        image: item.photos.length > 0 ? item.photos[0].url_l : ''
-      }
-    })
-  }).catch((err) => {
-    return next(err)
-  })
-})
-
-/* GET instagramer page. */
-router.get('/instagramer/:id', (req, res, next) => {
-  const id = req.params['id']
-  // return 404
-  if(!id) { return next() }
-
-  // get specific detail information from parse cloud code
-  const fetch = () => {
-    return new Promise((resolve, reject) => {
-      const options = {
-        sessionToken: req.cookies[constants.cookieNames.session]
-      }
-      parseCtrl.run('instagramer_page', options, {
-        instagramerId: id,
-        locale: resourceBundle.getLocale(req)
-      }, (err, response) => {
-        err ? reject(err) : resolve(response.result)
-      })
-    })
-  }
-
-  fetch().then((item) => {
-    const locale = resourceBundle.getLocale(req),
-      labels = resourceBundle.getLabels(req),
-      instagramer = item.instagramer,
-      title = instagramer.full_name ? instagramer.username + '(' + instagramer.full_name + ')' : instagramer.username
-    responseInterceptor.render(req, res, 'index', { 
-      locale: locale,
-      hash: req.path,
-      preLoadData: item,
-      meta: {
-        title: filter.labelFormat('meta_title_instagramer', title, labels),
-        keywords: instagramer.bio,
-        image: item.latest_photo.url_l || instagramer.profile_picture
+        keywords: item.tags || '',
+        image: item.photos.length > 0 ? item.photos[0].photo_url : ''
       }
     })
   }).catch((err) => {
